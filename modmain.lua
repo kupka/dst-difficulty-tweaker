@@ -1,4 +1,4 @@
-function DifficultyTune()
+function MobHealthTune()
     local mob_health_setting = GetModConfigData("mob_health_setting")
     print("mob_health_setting: " .. mob_health_setting)
     -- default for difficulty == "dst"
@@ -154,4 +154,132 @@ function DifficultyTune()
     TUNING.LUNARTHRALL_PLANT_VINE_HEALTH = 200 * mh_sp_modifer
 end
 
-DifficultyTune()
+function PlayerDamageTune()
+    local player_damage_setting = GetModConfigData("player_damage_setting")
+    print("player_damage_setting: " .. player_damage_setting)
+    -- default for difficulty == "dst" and "ds"
+    local tuned_damage = 34
+
+    if player_damage_setting == "easier" then
+        tuned_damage = 51
+    end
+
+    if player_damage_setting == "super_easy" then
+        tuned_damage = 68
+    end
+
+    if player_damage_setting == "harcore" then
+        tuned_damage = 26
+    end
+
+    if player_damage_setting == "nightmare" then
+        tuned_damage = 17
+    end
+
+    print("tuned_damage: " .. tuned_damage)
+
+    TUNING.BASE_SURVIVOR_ATTACK = tuned_damage
+    TUNING.NIGHTSWORD_DAMAGE = tuned_damage*2
+    TUNING.BATBAT_DAMAGE = tuned_damage * 1.25
+    TUNING.BATBAT_DRAIN = tuned_damage * 0.2
+    TUNING.SPIKE_DAMAGE = tuned_damage*1.5
+    TUNING.HAMBAT_DAMAGE = tuned_damage*1.75
+    TUNING.SPEAR_DAMAGE = tuned_damage
+    TUNING.CLAW_GLOVE_DAMAGE = tuned_damage*1.5
+    TUNING.WATHGRITHR_SPEAR_DAMAGE = tuned_damage * 1.25
+    TUNING.AXE_DAMAGE = tuned_damage*.8
+    TUNING.PICK_DAMAGE = tuned_damage*.8
+    TUNING.BOOMERANG_DAMAGE = tuned_damage*.8
+    TUNING.TORCH_DAMAGE = tuned_damage*.5
+    TUNING.HAMMER_DAMAGE = tuned_damage*.5
+    TUNING.SHOVEL_DAMAGE = tuned_damage*.5
+    TUNING.PITCHFORK_DAMAGE = tuned_damage*.5
+    TUNING.FARM_HOE_DAMAGE = tuned_damage*.5
+    TUNING.BUGNET_DAMAGE = tuned_damage*.125
+    TUNING.WHIP_DAMAGE = tuned_damage*.8
+    TUNING.BULLKELP_ROOT_DAMAGE = tuned_damage*.8
+    TUNING.FISHINGROD_DAMAGE = tuned_damage*.125
+    TUNING.UMBRELLA_DAMAGE = tuned_damage*.5
+    TUNING.CANE_DAMAGE = tuned_damage*.5
+    TUNING.MULTITOOL_DAMAGE = tuned_damage*1.25
+    TUNING.RUINS_BAT_DAMAGE = tuned_damage * 1.75
+    TUNING.NIGHTSTICK_DAMAGE = tuned_damage*.85 -- Due to the damage being electric it will get multiplied by 1.5 against any mob
+    TUNING.MINIFAN_DAMAGE = tuned_damage*.5
+    TUNING.SADDLEHORN_DAMAGE = tuned_damage*.5
+    TUNING.BRUSH_DAMAGE = tuned_damage*.8
+    TUNING.OAR_DAMAGE = tuned_damage*.5
+    TUNING.FENCE_ROTATOR_DAMAGE = tuned_damage
+    TUNING.PICKAXE_LUNARPLANT_DAMAGE = tuned_damage * 1.25 - 10
+    TUNING.SHOVEL_LUNARPLANT_DAMAGE = tuned_damage * .8 - 10
+    TUNING.SWORD_LUNARPLANT_DAMAGE = tuned_damage * 2 - 30
+    TUNING.LIGHTER_DAMAGE = tuned_damage*.5
+    TUNING.WINONA_CATAPULT_DAMAGE = tuned_damage * 1.25
+    TUNING.MOONGLASSAXE.DAMAGE = tuned_damage
+    TUNING.GLASSCUTTER.DAMAGE = tuned_damage * 2
+    TUNING.BOAT.OARS.BASIC.DAMAGE = tuned_damage*.5
+    TUNING.BOAT.OARS.DRIFTWOOD.DAMAGE = tuned_damage*.5
+    TUNING.BOAT.OARS.MALBATROSS.DAMAGE = tuned_damage*.8
+    TUNING.BOAT.OARS.MONKEY.DAMAGE = tuned_damage*1.5
+    TUNING.ARMORBRAMBLE_DMG = tuned_damage/1.5
+    TUNING.BEAVER_DAMAGE = tuned_damage * .8
+    TUNING.BEAVER_WOOD_DAMAGE = tuned_damage * .5 -- extra damage to wood things
+    TUNING.WEREMOOSE_DAMAGE = tuned_damage * 1.75
+    TUNING.SLINGSHOT_AMMO_DAMAGE_ROCKS = tuned_damage * 0.5              -- 17
+    TUNING.SLINGSHOT_AMMO_DAMAGE_GOLD = tuned_damage                             -- 34
+    TUNING.SLINGSHOT_AMMO_DAMAGE_MARBLE = tuned_damage * 1.5             -- 51
+    TUNING.SLINGSHOT_AMMO_DAMAGE_THULECITE = tuned_damage * 1.5  -- 51
+    TUNING.SLINGSHOT_AMMO_DAMAGE_SLOW = tuned_damage * 0.5               -- 17
+    TUNING.SLINGSHOT_AMMO_DAMAGE_TRINKET_1 = tuned_damage * 1.75 -- 59.5
+    TUNING.POCKETWATCH_SHADOW_DAMAGE = tuned_damage*2.4
+    TUNING.POCKETWATCH_DEPLETED_DAMAGE = tuned_damage*.8
+    TUNING.TRIDENT.DAMAGE = tuned_damage * 0.8 -- Same damage as an axe... hahaha.
+    TUNING.TRIDENT.OCEAN_DAMAGE = tuned_damage * 2
+    TUNING.ALTERGUARDIANHAT_GESTALT_DAMAGE = tuned_damage * 1.25
+    TUNING.SHIELDOFTERROR_DAMAGE = tuned_damage*1.5
+    TUNING.DUMBBELL_DAMAGE_ROCK = tuned_damage*.5
+    TUNING.DUMBBELL_DAMAGE_GOLD = tuned_damage*.8
+    TUNING.DUMBBELL_DAMAGE_MARBLE = tuned_damage
+    TUNING.DUMBBELL_DAMAGE_GEM = tuned_damage * 1.25
+    TUNING.CUTLESS_DAMAGE = tuned_damage*.8
+end
+
+function FoodPerishTune()
+    local food_perish_setting = GetModConfigData("food_perish_setting")
+    print("food_perish_setting: " .. food_perish_setting)
+    -- default for difficulty == "dst" and "ds"
+    local perish_modifier = 1
+
+    if food_perish_setting == "easier" then
+        perish_modifier = 2
+    end
+
+    if food_perish_setting == "super_easy" then
+        perish_modifier = 4
+    end
+
+    if food_perish_setting == "harcore" then
+        perish_modifier = 0.5
+    end
+
+    if food_perish_setting == "nightmare" then
+        perish_modifier = 0.25
+    end
+
+    print("perish_modifier: " .. perish_modifier)
+
+    TUNING.PERISH_ONE_DAY = 1 * TUNING.TOTAL_DAY_TIME * perish_modifier
+    TUNING.PERISH_TWO_DAY = 2 * TUNING.TOTAL_DAY_TIME * perish_modifier
+    TUNING.PERISH_SUPERFAST = 3 * TUNING.TOTAL_DAY_TIME * perish_modifier
+    TUNING.PERISH_FAST = 6 * TUNING.TOTAL_DAY_TIME * perish_modifier
+    TUNING.PERISH_FASTISH = 8 * TUNING.TOTAL_DAY_TIME * perish_modifier
+    TUNING.PERISH_MED = 10 * TUNING.TOTAL_DAY_TIME * perish_modifier
+    TUNING.PERISH_SLOW = 15 * TUNING.TOTAL_DAY_TIME * perish_modifier
+    TUNING.PERISH_PRESERVED = 20 * TUNING.TOTAL_DAY_TIME * perish_modifier
+    TUNING.PERISH_SUPERSLOW = 40 * TUNING.TOTAL_DAY_TIME * perish_modifier
+end
+
+MobHealthTune()
+PlayerDamageTune()
+FoodPerishTune()
+
+print("tweak_everything done.")
