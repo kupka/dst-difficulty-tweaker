@@ -2,7 +2,7 @@ name = "Difficulty Tweaker"
 description = "Tweak many things in DST."
 author = "itchy.de"
 
-version = "0.2"
+version = "0.3"
 
 api_version = 10
 
@@ -59,5 +59,21 @@ configuration_options =
                 {description = "Nightmare", data = "nightmare", hover = "Food perishes a lot quicker."},
             },
 		default = "dst",
+	},
+    {
+		name = "tool_durability_setting",
+		label = "Tools and Weapons Durability Setting",
+        hover = "Tweak the durability of tools and weapons.",
+		options =
+            {
+                {description = "Don't Starve Together", data = "dst", hover = "The default DST experience (actually, same as DS)."},
+                {description = "Don't Starve", data = "ds", hover = "The default DS experience (actually, same as DST)."},
+                {description = "Easier", data = "easier", hover = "Tools and weapons last a bit longer."},
+                {description = "Super Easy", data = "super_easy", hover = "Tools and weapons last a lot longer."},
+                {description = "Hardcore", data = "hardcore", hover = "Tools and weapons break a bit quicker."},
+                {description = "Nightmare", data = "nightmare", hover = "Tools and weapons break a lot quicker."},
+            },
+		default = "dst",
 	}
+
 }

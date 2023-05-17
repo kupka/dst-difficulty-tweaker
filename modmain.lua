@@ -278,8 +278,124 @@ function FoodPerishTune()
     TUNING.PERISH_SUPERSLOW = 40 * TUNING.TOTAL_DAY_TIME * perish_modifier
 end
 
-MobHealthTune()
-PlayerDamageTune()
-FoodPerishTune()
+function ToolsDurationTune()
+    local tool_durability_setting = GetModConfigData("tool_durability_setting")
+    print("tool_durability_setting: " .. tool_durability_setting)
+    -- default for difficulty == "dst" and "ds"
+    local durability_modifier = 1
 
-print("tweak_everything done.")
+    if tool_durability_setting == "easier" then
+        durability_modifier = 2
+    end
+
+    if tool_durability_setting == "super_easy" then
+        durability_modifier = 4
+    end
+
+    if tool_durability_setting == "harcore" then
+        durability_modifier = 0.5
+    end
+
+    if tool_durability_setting == "nightmare" then
+        durability_modifier = 0.25
+    end
+
+    print("durability_modifier: " .. durability_modifier)
+
+    TUNING.AXE_USES = 100 * durability_modifier
+    TUNING.HAMMER_USES = 75 * durability_modifier
+    TUNING.SHOVEL_USES = 25 * durability_modifier
+    TUNING.PITCHFORK_USES = 25 * durability_modifier
+    TUNING.FARM_HOE_USES = 25 * durability_modifier
+    TUNING.PICKAXE_USES = 33 * durability_modifier
+    TUNING.BUGNET_USES = 10 * durability_modifier
+    TUNING.WHIP_USES = 175 * durability_modifier
+    TUNING.SPEAR_USES = 150 * durability_modifier
+    TUNING.CLAW_GLOVE_USES = 200 * durability_modifier
+    TUNING.WATHGRITHR_SPEAR_USES = 200 * durability_modifier
+    TUNING.SPIKE_USES = 100 * durability_modifier
+    TUNING.FISHINGROD_USES = 9 * durability_modifier
+    TUNING.TRAP_USES = 8 * durability_modifier
+    TUNING.BOOMERANG_USES = 10 * durability_modifier
+    TUNING.NIGHTSWORD_USES = 100 * durability_modifier
+    TUNING.ICESTAFF_USES = 20 * durability_modifier
+    TUNING.FIRESTAFF_USES = 20 * durability_modifier
+    TUNING.TELESTAFF_USES = 5 * durability_modifier
+    TUNING.HAMBAT_USES = 100 * durability_modifier
+    TUNING.BATBAT_USES = 75 * durability_modifier
+    TUNING.MULTITOOL_AXE_PICKAXE_USES = 800 * durability_modifier
+    TUNING.PICKAXE_LUNARPLANT_USES = 600 * durability_modifier
+    TUNING.SHOVEL_LUNARPLANT_USES = 250 * durability_modifier
+    TUNING.STAFF_LUNARPLANT_USES = 50 * durability_modifier
+    TUNING.SWORD_LUNARPLANT_USES = 200 * durability_modifier
+    TUNING.RUINS_BAT_USES = 200 * durability_modifier
+    TUNING.SADDLEHORN_USES = 10 * durability_modifier
+    TUNING.BRUSH_USES = 75 * durability_modifier
+    TUNING.FENCE_ROTATOR_USES = 200 * durability_modifier
+    TUNING.REDAMULET_USES = 20 * durability_modifier
+    TUNING.YELLOWSTAFF_USES = 20 * durability_modifier
+    TUNING.OPALSTAFF_USES = 50 * durability_modifier
+    TUNING.ORANGEAMULET_USES = 225 * durability_modifier
+    TUNING.ORANGESTAFF_USES = 20 * durability_modifier
+    TUNING.GREENAMULET_USES = 5 * durability_modifier
+    TUNING.GREENSTAFF_USES = 5 * durability_modifier
+    TUNING.POCKETSCALE_USES = 100 * durability_modifier
+    TUNING.SADDLE_BASIC_USES = 5 * durability_modifier
+    TUNING.SADDLE_WAR_USES = 8 * durability_modifier
+    TUNING.SADDLE_RACE_USES = 8 * durability_modifier
+    TUNING.POOP_CAN_USES = 8 * durability_modifier
+    TUNING.SOILAMENDER_FERMENTED_USES = 5 * durability_modifier
+    TUNING.HEATROCK_NUMUSES = 8 * durability_modifier
+    TUNING.PANFLUTE_USES = 10 * durability_modifier
+    TUNING.HORN_USES = 10 * durability_modifier
+    TUNING.HOUNDWHISTLE_USES = 10 * durability_modifier
+    TUNING.TRAP_TEETH_USES = 10 * durability_modifier
+    TUNING.TENT_USES = 15 * durability_modifier
+    TUNING.SIESTA_CANOPY_USES = 15 * durability_modifier
+    TUNING.PORTABLE_TENT_USES = 10 * durability_modifier
+    TUNING.BEDROLL_FURRY_USES = 3 * durability_modifier
+    TUNING.UMBRELLA_USES = 20 * durability_modifier
+    TUNING.SEWINGKIT_USES = 5 * durability_modifier
+    TUNING.FERTILIZER_USES = 10 * durability_modifier
+    TUNING.GLOMMERBELL_USES = 3 * durability_modifier
+    TUNING.TORNADOSTAFF_USES = 15 * durability_modifier
+    TUNING.FEATHERFAN_USES = 15 * durability_modifier
+    TUNING.SALTLICK_BEEFALO_USES = 2 / durability_modifier
+    TUNING.SALTLICK_KOALEFANT_USES = 4 / durability_modifier
+    TUNING.SALTLICK_LIGHTNINGGOAT_USES = 1 / durability_modifier
+    TUNING.SALTLICK_DEER_USES = 1 / durability_modifier
+    TUNING.SALTLICK_GRASSGATOR_USES = 4 / durability_modifier
+    TUNING.PERDFAN_USES = 9 * durability_modifier
+    TUNING.GLASSCUTTER_USES = 75 * durability_modifier
+    TUNING.FISHING_NET_USES = 22 * durability_modifier
+    TUNING.BOAT.OARS.BASIC.USES = 500 * durability_modifier
+    TUNING.BOAT.OARS.DRIFTWOOD.USES = 400 * durability_modifier
+    TUNING.BOAT.OARS.MALBATROSS.USES = 1500 * durability_modifier
+    TUNING.BOAT.OARS.MONKEY.USES = 500 * durability_modifier
+    TUNING.TRAP_BRAMBLE_USES = 10 * durability_modifier
+    TUNING.GNARWAIL_HORN.USES = 10 * durability_modifier
+    TUNING.TRIDENT.USES = 150 * durability_modifier
+    TUNING.ARCHIVE_RESONATOR.USES = 10 * durability_modifier
+    TUNING.FARM_PLOW_USES = 4 * durability_modifier
+    TUNING.WATERINGCAN_USES = 40 * durability_modifier
+    TUNING.PREMIUMWATERINGCAN_USES = 160 * durability_modifier
+    TUNING.SPIDER_REPELLENT_USES = 20 * durability_modifier
+    TUNING.WX78_MODULE_USES = 4 * durability_modifier
+    TUNING.CUTLESS_USES = 150 * durability_modifier
+    TUNING.FIREPEN_MAXUSES = 10 * durability_modifier
+    TUNING.BOOK_USES_SMALL = 3 * durability_modifier
+    TUNING.BOOK_USES_LARGE = 5 * durability_modifier
+    TUNING.ANTLIONHAT_USES = 400 * durability_modifier
+end
+
+
+print("Tuning mob health.")
+MobHealthTune()
+print("Tuning player damage")
+PlayerDamageTune()
+print("Tuning food perish")
+FoodPerishTune()
+print("Tuning tools and weapons durability")
+ToolsDurationTune()
+
+print("tweak_everything done.") 
