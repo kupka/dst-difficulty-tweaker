@@ -74,6 +74,21 @@ configuration_options =
                 {description = "Nightmare", data = "nightmare", hover = "Tools and weapons break a lot quicker."},
             },
 		default = "dst",
+	},
+    {
+		name = "armor_durability_setting",
+		label = "Armor Durability Setting",
+        hover = "Tweak the durability of armor.",
+		options =
+            {
+                {description = "Don't Starve Together", data = "dst", hover = "The default DST experience (a bit harder than DS)."},
+                {description = "Don't Starve", data = "ds", hover = "The default DS experience."},
+                {description = "Easier", data = "easier", hover = "Tools and weapons last a bit longer than DS."},
+                {description = "Super Easy", data = "super_easy", hover = "Tools and weapons last a lot longer than DS."},
+                {description = "Hardcore", data = "hardcore", hover = "Tools and weapons break a bit quicker than DST."},
+                {description = "Nightmare", data = "nightmare", hover = "Tools and weapons break a lot quicker than DST."},
+            },
+		default = "dst",
 	}
 
 }

@@ -388,6 +388,61 @@ function ToolsDurationTune()
     TUNING.ANTLIONHAT_USES = 400 * durability_modifier
 end
 
+function ArmorDurabilityTune()
+    local armor_durability_setting = GetModConfigData("armor_durability_setting")
+    print("armor_durability_setting: " .. armor_durability_setting)
+    -- default for difficulty == "dst"
+    local wilson_health = 150
+    local durability_modifier = 0.7
+
+    if armor_durability_setting == "ds" then
+        durability_modifier = 1.0
+    end
+
+    if armor_durability_setting == "easier" then
+        durability_modifier = 2.0
+    end
+
+    if armor_durability_setting == "super_easy" then
+        durability_modifier = 4.0
+    end
+
+    if armor_durability_setting == "harcore" then
+        durability_modifier = 0.5
+    end
+
+    if armor_durability_setting == "nightmare" then
+        durability_modifier = 0.25
+    end
+
+    print("durability_modifier: " .. durability_modifier)
+
+    TUNING.ARMORGRASS = wilson_health*1.5*durability_modifier
+    TUNING.ARMORWOOD = wilson_health*3*durability_modifier
+    TUNING.ARMORMARBLE = wilson_health*7*durability_modifier
+    TUNING.ARMORSNURTLESHELL = wilson_health*7*durability_modifier
+    TUNING.ARMORRUINS = wilson_health * 12*durability_modifier
+    TUNING.ARMORSLURPER = wilson_health * 4*durability_modifier
+    TUNING.ARMOR_FOOTBALLHAT = wilson_health*3*durability_modifier
+    TUNING.ARMOR_COOKIECUTTERHAT = wilson_health*5*durability_modifier
+    TUNING.ARMORDRAGONFLY = wilson_health * 9*durability_modifier
+    TUNING.ARMOR_WATHGRITHRHAT = wilson_health * 5*durability_modifier
+    TUNING.ARMOR_RUINSHAT = wilson_health*8*durability_modifier
+    TUNING.ARMOR_SLURTLEHAT = wilson_health*5*durability_modifier
+    TUNING.ARMOR_BEEHAT = wilson_health*10*durability_modifier
+    TUNING.ARMOR_SANITY = wilson_health * 5*durability_modifier
+    TUNING.ARMOR_HIVEHAT = wilson_health * 9 * durability_modifier
+    TUNING.ARMOR_SKELETONHAT = wilson_health * 9 * durability_modifier
+    TUNING.ARMOR_DREADSTONEHAT = wilson_health * 8 * durability_modifier
+    TUNING.ARMORDREADSTONE = wilson_health * 8 * durability_modifier
+    TUNING.ARMOR_LUNARPLANT = wilson_health * 6 * durability_modifier + 20 * 10
+    TUNING.ARMOR_LUNARPLANT_HAT = wilson_health * 6 * durability_modifier + 20 * 10
+    TUNING.ARMOR_VOIDCLOTH = wilson_health * 6 * durability_modifier + 20 * 10
+    TUNING.ARMOR_VOIDCLOTH_HAT = wilson_health * 6 * durability_modifier + 20 * 10
+    TUNING.ARMORBRAMBLE = wilson_health*5*durability_modifier
+    TUNING.SHIELDOFTERROR_ARMOR = wilson_health*3*durability_modifier
+end
+
 
 print("Tuning mob health.")
 MobHealthTune()
@@ -397,5 +452,7 @@ print("Tuning food perish")
 FoodPerishTune()
 print("Tuning tools and weapons durability")
 ToolsDurationTune()
+print("Tuning armor durability")
+ArmorDurabilityTune()
 
 print("tweak_everything done.") 
