@@ -2,7 +2,7 @@ name = "Difficulty Tweaker"
 description = "Tweak many things in DST."
 author = "itchy.de"
 
-version = "0.3"
+version = "0.4"
 
 api_version = 10
 
